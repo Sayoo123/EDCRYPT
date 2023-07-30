@@ -28,12 +28,16 @@ const MainPage = ({navigation}) => {
   <SafeAreaView style={styles.container}>
      <TextInput
     placeholder='Enter PlainText'
+    onFocus={this.handleFocus}
+    onBlur={this.handleBlur}
     style={styles.TextInput}
     onChangeText={(val)=>setenctext(val)}
     placeholderTextColor="#444547"
     />
     <TextInput
     placeholder='Enter Key'
+    onFocus={this.handleFocus}
+    onBlur={this.handleBlur}
     style={styles.TextInput}
     onChangeText={(val)=>setkey(val)}
     placeholderTextColor="#444547"
@@ -91,8 +95,7 @@ const styles = StyleSheet.create({
     width :250,
     margin:10,
     color:'white',
-   borderBottomColor:'#444547',
-   
+   borderBottomColor:'grey'
    },
  button:{
   borderRadius:5,
