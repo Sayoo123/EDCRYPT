@@ -35,7 +35,7 @@ const MainPage = ({navigation}) => {
     return(
   <SafeAreaView style={styles.container}>
      <TextInput
-    placeholder='Enter PlainText'
+    placeholder='Enter PlainTexT'
     onFocus={()=>focushandler(1)}
     onBlur={()=>blurhandler()}
     style={[styles.TextInput,{borderBottomColor:focus==1?'#F89300':'grey'}]}
