@@ -42,16 +42,6 @@ const MainPage = ({navigation}) => {
     onChangeText={(val)=>setenctext(val)}
     placeholderTextColor="#444547"
     />
-    {/* <Madoka
-    label={'Enter plaintext'}
-    // this is used as active and passive border color
-    onChangeText={(val)=>setenctext(val)}
-    borderColor={'#F89300'}
-    inputPadding={10}
-    style={{width:250}}
-    labelStyle={{ color: '#444547' ,height:38,fontWeight:'400',fontSize:100}}
-    inputStyle={{ color: 'white',fontSize:14}}
-  /> */}
     <TextInput
     placeholder='Enter Key'
     onFocus={()=>focushandler(2)}
@@ -115,6 +105,7 @@ const styles = StyleSheet.create({
     width :250,
     margin:10,
     borderBottomWidth:1,
+    color:'white'
   },
  button:{
   borderRadius:5,
