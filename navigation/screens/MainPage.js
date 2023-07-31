@@ -10,10 +10,18 @@ const MainPage = ({navigation}) => {
   const[enctext,setenctext]=useState("");
   const[ciphertext,setciphtext]=useState("");
   const[plaintext,setplaintext]=useState("");
+  const[focus,isFocused]=useState(false);
   useEffect(() => {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
     return () => backHandler.remove()
   }, [])
+
+    function focushandler(i){
+      isFocused(i);}
+    
+    function blurhandler(){
+      isFocused(0);}
+
  function OnPressHanlder()
  {
   ciphermsg=encryption(key,enctext);
@@ -26,13 +34,15 @@ const MainPage = ({navigation}) => {
  }
     return(
   <SafeAreaView style={styles.container}>
-     {/* <TextInput
+     <TextInput
     placeholder='Enter PlainText'
-    style={styles.TextInput}
+    onFocus={()=>focushandler(1)}
+    onBlur={()=>blurhandler()}
+    style={[styles.TextInput,{borderBottomColor:focus==1?'#F89300':'grey'}]}
     onChangeText={(val)=>setenctext(val)}
     placeholderTextColor="#444547"
-    /> */}
-    <Madoka
+    />
+    {/* <Madoka
     label={'Enter plaintext'}
     // this is used as active and passive border color
     onChangeText={(val)=>setenctext(val)}
@@ -41,12 +51,15 @@ const MainPage = ({navigation}) => {
     style={{width:250}}
     labelStyle={{ color: '#444547' ,height:38,fontWeight:'400',fontSize:100}}
     inputStyle={{ color: 'white',fontSize:14}}
-  />
+  /> */}
     <TextInput
     placeholder='Enter Key'
-    style={styles.TextInput}
+    onFocus={()=>focushandler(2)}
+    onBlur={()=>blurhandler()}
+    style={[styles.TextInput,{borderBottomColor:focus==2?'#F89300':'grey'}]}
     onChangeText={(val)=>setkey(val)}
     placeholderTextColor="#444547"
+    
     />
     <TouchableOpacity
     style={styles.button}
@@ -57,13 +70,17 @@ const MainPage = ({navigation}) => {
     <Text style={styles.value}>{msg}</Text>
     <TextInput
     placeholder='Enter CipherText'
-    style={styles.TextInput}
+    onFocus={()=>focushandler(3)}
+    onBlur={()=>blurhandler()}
+    style={[styles.TextInput,{borderBottomColor:focus==3?'#F89300':'grey'}]}
     onChangeText={(val)=>setciphtext(val)}
     placeholderTextColor="#444547"
     />
     <TextInput
     placeholder='Enter Key'
-    style={styles.TextInput}
+    onFocus={()=>focushandler(4)}
+    onBlur={()=>blurhandler()}
+    style={[styles.TextInput,{borderBottomColor:focus==4?'#F89300':'grey'}]}
     onChangeText={(val)=>setcipherkey(val)}
     placeholderTextColor="#444547"
     />
@@ -97,6 +114,7 @@ const styles = StyleSheet.create({
   TextInput:{
     width :250,
     margin:10,
+    borderBottomWidth:1,
   },
  button:{
   borderRadius:5,
