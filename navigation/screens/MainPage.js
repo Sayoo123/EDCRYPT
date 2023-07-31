@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import {View,StyleSheet,Text, TextInput, Button, SafeAreaView, Touchable, TouchableOpacity,BackHandler} from 'react-native';
-import {Icon} from 'react-native-vector-icons/FontAwesome'
+import { Madoka } from 'react-native-textinput-effects';
 import encryption from '../../components/encryption';
 import decryption from '../../components/decryption';
 const MainPage = ({navigation}) => {
@@ -26,18 +26,24 @@ const MainPage = ({navigation}) => {
  }
     return(
   <SafeAreaView style={styles.container}>
-     <TextInput
+     {/* <TextInput
     placeholder='Enter PlainText'
-    onFocus={this.handleFocus}
-    onBlur={this.handleBlur}
     style={styles.TextInput}
     onChangeText={(val)=>setenctext(val)}
     placeholderTextColor="#444547"
-    />
+    /> */}
+    <Madoka
+    label={'Enter plaintext'}
+    // this is used as active and passive border color
+    onChangeText={(val)=>setenctext(val)}
+    borderColor={'#F89300'}
+    inputPadding={10}
+    style={{width:250}}
+    labelStyle={{ color: '#444547' ,height:38,fontWeight:'400',fontSize:100}}
+    inputStyle={{ color: 'white',fontSize:14}}
+  />
     <TextInput
     placeholder='Enter Key'
-    onFocus={this.handleFocus}
-    onBlur={this.handleBlur}
     style={styles.TextInput}
     onChangeText={(val)=>setkey(val)}
     placeholderTextColor="#444547"
@@ -89,14 +95,9 @@ const styles = StyleSheet.create({
     paddingBottom:'18%'
   },
   TextInput:{
-    borderBottomWidth:1,
-    padding:10,
-    paddingBottom:5,
     width :250,
     margin:10,
-    color:'white',
-   borderBottomColor:'grey'
-   },
+  },
  button:{
   borderRadius:5,
   alignItems: 'center',

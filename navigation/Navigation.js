@@ -14,13 +14,13 @@ const Navigation = () => {
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
         //Whenever keyboard did show make it don't visible
-        LayoutAnimation.spring(); 
+        
         setVisible(false);
-    },6500);
+    });
     const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
-      LayoutAnimation.spring(); 
+      
         setVisible(true);
-    },1500);
+    });
   },[]);
   return (
 
@@ -31,7 +31,7 @@ const Navigation = () => {
       // tabBarInactiveTintColor:'grey',
       
       tabBarStyle:{
-        backgroundColor:'white',
+        backgroundColor:'#313544',
         bottom:20,
         left: 25,
         right: 25,
@@ -40,7 +40,7 @@ const Navigation = () => {
         elevation: 5,
         display:visible?'flex':'none',
         position: 'absolute',
-        borderColor:'grey',
+        borderColor:'#313544',
       }
     }}>
       
