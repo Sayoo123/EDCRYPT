@@ -58,7 +58,11 @@ Now that you have successfully run the app, let's modify it.
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
+## Notes:
+-TARGETSDKVERSION:33
 
+-To install any recommend react-native modules:Run Command
+npm install module_name
 ### Now what?
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
